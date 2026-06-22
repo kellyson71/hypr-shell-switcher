@@ -1,0 +1,3 @@
+active-profile.conf
+*.swp
+__pycache__/
