@@ -2,7 +2,7 @@
 
 # hypr-shell-switcher
 
-Alterne entre múltiplos shells [Quickshell](https://quickshell.outfoxxed.me) no [Hyprland](https://hyprland.org) sem logout, com keybinds próprios por shell, troca animada e um menu temático.
+Switch between multiple [Quickshell](https://quickshell.outfoxxed.me) shells on [Hyprland](https://hyprland.org) without logging out, with per-shell keybinds, an animated transition and a themed menu.
 
 [![Hyprland](https://img.shields.io/badge/Hyprland-00AABB?style=for-the-badge&logo=hyprland&logoColor=white)](https://hyprland.org)
 [![Quickshell](https://img.shields.io/badge/Quickshell-41CD52?style=for-the-badge&logo=qt&logoColor=white)](https://quickshell.outfoxxed.me)
@@ -10,42 +10,42 @@ Alterne entre múltiplos shells [Quickshell](https://quickshell.outfoxxed.me) no
 [![rofi](https://img.shields.io/badge/rofi-FF5555?style=for-the-badge&logo=linux&logoColor=white)](https://github.com/davatorium/rofi)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-<img src="assets/menu.png" alt="Menu de troca de shell" width="520">
+<img src="assets/menu.png" alt="Shell switcher menu" width="520">
 
 </div>
 
-## Sobre
+## About
 
-Roda dois (ou mais) shells Quickshell na mesma sessão do Hyprland e troca entre eles a quente. Vem pronto para os dois shells mais populares:
+Runs two (or more) Quickshell shells in the same Hyprland session and switches between them on the fly. Ships ready for the two most popular shells:
 
 - **[end-4](https://github.com/end-4/dots-hyprland)** (`illogical-impulse`) — `~/.config/quickshell/ii`
 - **[caelestia](https://github.com/caelestia-dots/shell)** (`caelestia-shell`) — `~/.config/quickshell/caelestia`
 
-Cada shell expõe seus próprios globals e atalhos. Este projeto resolve isso carregando keybinds específicos por shell de forma condicional, então cada um funciona como se fosse o único instalado.
+Each shell exposes its own globals and shortcuts. This project solves that by loading shell-specific keybinds conditionally, so each one behaves as if it were the only shell installed.
 
-## Recursos
+## Features
 
-- **Troca a quente** entre shells, sem encerrar a sessão
-- **Transição animada** — congela a tela (`grim`) e revela o novo shell com `swww`
-- **Menu temático** (`rofi`) que herda as cores Material You do shell ativo
-- **Keybinds por shell** — overrides condicionais para o caelestia (screenshot, launcher, sidebar, sessão, mídia, clipboard)
-- **Auto-detecção** — qualquer pasta em `~/.config/quickshell/<nome>/shell.qml` aparece no menu
-- **Indicadores ricos** — versão e status (ativo/parado, há quanto tempo) de cada shell
-- **Toggle direto** ou **menu completo** (trocar / reiniciar / configurar / recarregar)
+- **Hot switching** between shells, no session logout
+- **Animated transition** — freezes the screen (`grim`) and reveals the new shell with `swww`
+- **Themed menu** (`rofi`) that inherits the active shell's Material You colors
+- **Per-shell keybinds** — conditional overrides for caelestia (screenshot, launcher, sidebar, session, media, clipboard)
+- **Auto-detection** — any folder at `~/.config/quickshell/<name>/shell.qml` shows up in the menu
+- **Rich indicators** — version and status (running/stopped, for how long) of each shell
+- **Direct toggle** or **full menu** (switch / restart / configure / reload)
 
-## Requisitos
+## Requirements
 
-| Pacote | Uso |
+| Package | Purpose |
 |---|---|
-| `quickshell` | os shells em si |
+| `quickshell` | the shells themselves |
 | `hyprland` | window manager |
-| `rofi` (wayland) | menu de seleção |
-| `swww` + `grim` | animação de troca |
-| `python3` | extração das cores do tema |
-| `app2unit` | lançar o shell via systemd (opcional) |
-| `papirus-icon-theme` | ícones das ações do menu |
+| `rofi` (wayland) | selection menu |
+| `swww` + `grim` | switch animation |
+| `python3` | extracting the theme colors |
+| `app2unit` | launch the shell via systemd (optional) |
+| `papirus-icon-theme` | icons for the menu actions |
 
-## Instalação
+## Installation
 
 ```sh
 git clone https://github.com/kellyson71/hypr-shell-switcher
@@ -53,45 +53,45 @@ cd hypr-shell-switcher
 ./install.sh
 ```
 
-O instalador copia os arquivos para `~/.config/hypr`, registra o bloco condicional no `hyprland.conf` e cria o `active-profile.conf` inicial. Em seguida, adicione os atalhos ao seu `keybinds.conf`:
+The installer copies the files to `~/.config/hypr`, registers the conditional block in `hyprland.conf` and creates the initial `active-profile.conf`. Then add the shortcuts to your `keybinds.conf`:
 
 ```ini
 bind = Super+Control, Tab, exec, ~/.config/hypr/scripts/switch-shell.sh toggle
 bind = Super+Control+Shift, Tab, exec, ~/.config/hypr/scripts/switch-shell.sh menu
 ```
 
-## Uso
+## Usage
 
-| Atalho | Ação |
+| Shortcut | Action |
 |---|---|
-| `Super+Control+Tab` | alterna direto para o próximo shell |
-| `Super+Control+Shift+Tab` | abre o menu completo |
+| `Super+Control+Tab` | switch directly to the next shell |
+| `Super+Control+Shift+Tab` | open the full menu |
 
-Ou pela linha de comando:
+Or from the command line:
 
 ```sh
-switch-shell.sh toggle       # próximo shell
-switch-shell.sh caelestia    # troca direto
-switch-shell.sh end4         # troca direto
-switch-shell.sh menu         # menu rofi
+switch-shell.sh toggle       # next shell
+switch-shell.sh caelestia    # switch directly
+switch-shell.sh end4         # switch directly
+switch-shell.sh menu         # rofi menu
 ```
 
-## Como funciona
+## How it works
 
 ```
 ~/.config/hypr/
-├── hyprland.conf              # source de active-profile.conf + bloco condicional
-├── active-profile.conf        # perfil ativo (cópia de profiles/<shell>.conf)
-├── caelestia-overrides.conf   # keybinds do caelestia (carregado se isCaelestia)
+├── hyprland.conf              # sources active-profile.conf + conditional block
+├── active-profile.conf        # active profile (copy of profiles/<shell>.conf)
+├── caelestia-overrides.conf   # caelestia keybinds (loaded when isCaelestia)
 ├── profiles/
 │   ├── end4.conf              # $qsConfig = ii   ; $isCaelestia =
 │   └── caelestia.conf         # $qsConfig = caelestia ; $isCaelestia = 1
 └── scripts/
-    ├── switch-shell.sh        # troca, menu e animação
-    └── shell-colors.py        # extrai as cores Material You do shell ativo
+    ├── switch-shell.sh        # switching, menu and animation
+    └── shell-colors.py        # extracts the active shell's Material You colors
 ```
 
-Cada perfil define a variável `$qsConfig` (qual pasta do Quickshell carregar) e a flag `$isCaelestia`. O `hyprland.conf` faz `source` do `active-profile.conf` no início e, no fim, carrega os overrides do caelestia apenas quando a flag está ativa:
+Each profile sets the `$qsConfig` variable (which Quickshell folder to load) and the `$isCaelestia` flag. `hyprland.conf` sources `active-profile.conf` at the start and, at the end, loads the caelestia overrides only when the flag is set:
 
 ```ini
 source = active-profile.conf
@@ -101,14 +101,14 @@ source = caelestia-overrides.conf
 # hyprlang endif
 ```
 
-Trocar de shell é: copiar o perfil para `active-profile.conf`, recarregar o Hyprland e reiniciar o `qs` com o novo `qsConfig`.
+Switching shells means: copy the profile to `active-profile.conf`, reload Hyprland and restart `qs` with the new `qsConfig`.
 
-## Créditos
+## Credits
 
 - [end-4/dots-hyprland](https://github.com/end-4/dots-hyprland)
 - [caelestia-dots/shell](https://github.com/caelestia-dots/shell)
-- [Quickshell](https://quickshell.outfoxxed.me) por [outfoxxed](https://git.outfoxxed.me)
+- [Quickshell](https://quickshell.outfoxxed.me) by [outfoxxed](https://git.outfoxxed.me)
 
-## Licença
+## License
 
 [MIT](LICENSE)
