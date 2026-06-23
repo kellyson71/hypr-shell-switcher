@@ -11,6 +11,7 @@ import os
 import json
 
 active = sys.argv[1] if len(sys.argv) > 1 else ""
+mode = sys.argv[2] if len(sys.argv) > 2 else ""
 home = os.path.expanduser("~")
 
 
@@ -21,6 +22,22 @@ def norm(c: str) -> str:
 def emit(m: dict) -> None:
     for k, v in m.items():
         print(f'C_{k.upper()}="{norm(v)}"')
+
+
+def load_raw(shell: str) -> dict:
+    if shell == "caelestia":
+        return json.load(open(f"{home}/.local/state/caelestia/scheme.json"))["colours"]
+    return json.load(open(f"{home}/.local/state/quickshell/user/generated/colors.json"))
+
+
+# Modo "primary": imprime só a cor de acento de um shell específico (para o
+# acento por linha do menu), independente de qual shell está ativo.
+if mode == "primary":
+    try:
+        print(norm(load_raw(active)["primary"]))
+    except Exception:
+        print("#8ab4f8")
+    sys.exit(0)
 
 
 try:
