@@ -10,15 +10,25 @@ Switch between multiple [Quickshell](https://quickshell.outfoxxed.me) shells on 
 [![rofi](https://img.shields.io/badge/rofi-FF5555?style=for-the-badge&logo=linux&logoColor=white)](https://github.com/davatorium/rofi)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-<br>
-
-<img src="assets/demo.gif" alt="Shell switching demo" width="720">
-
-<br>
-
-<img src="assets/preview.png" alt="Shell switcher menu" width="600">
-
 </div>
+
+---
+
+<table align="center">
+  <tr>
+    <td align="center" width="50%">
+      <strong>Transition</strong><br><br>
+      <img src="assets/demo.gif" alt="Flicker-free shell transition" width="100%">
+    </td>
+    <td align="center" width="50%">
+      <strong>Menu</strong><br><br>
+      <img src="assets/preview.png" alt="Shell switcher menu" width="100%">
+    </td>
+  </tr>
+</table>
+
+---
+
 
 ## About
 
