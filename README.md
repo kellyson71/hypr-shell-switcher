@@ -12,7 +12,7 @@ Switch between multiple [Quickshell](https://quickshell.outfoxxed.me) shells on 
 
 <br>
 
-<video src="https://github.com/kellyson71/hypr-shell-switcher/releases/download/v2.0.0/recording_20260623_15-32-22.mp4" controls width="720"></video>
+<img src="assets/demo.gif" alt="Shell switching demo" width="720">
 
 <br>
 
