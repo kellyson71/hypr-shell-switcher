@@ -1,8 +1,12 @@
 <div align="center">
 
+<img src="assets/demo.gif" alt="Shell switching demo" width="100%">
+
+<br>
+
 # hypr-shell-switcher
 
-Switch between multiple [Quickshell](https://quickshell.outfoxxed.me) shells on [Hyprland](https://hyprland.org) without logging out — with a flicker-free animated transition, a themed rofi menu and per-shell keybinds.
+Switch between [Quickshell](https://quickshell.outfoxxed.me) shells on [Hyprland](https://hyprland.org) without logging out — flicker-free transition, themed menu and per-shell keybinds.
 
 [![Hyprland](https://img.shields.io/badge/Hyprland-00AABB?style=for-the-badge&logo=hyprland&logoColor=white)](https://hyprland.org)
 [![Quickshell](https://img.shields.io/badge/Quickshell-41CD52?style=for-the-badge&logo=qt&logoColor=white)](https://quickshell.outfoxxed.me)
@@ -11,24 +15,6 @@ Switch between multiple [Quickshell](https://quickshell.outfoxxed.me) shells on 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 </div>
-
----
-
-<table align="center">
-  <tr>
-    <td align="center" width="50%">
-      <strong>Transition</strong><br><br>
-      <img src="assets/demo.gif" alt="Flicker-free shell transition" width="100%">
-    </td>
-    <td align="center" width="50%">
-      <strong>Menu</strong><br><br>
-      <img src="assets/preview.png" alt="Shell switcher menu" width="100%">
-    </td>
-  </tr>
-</table>
-
----
-
 
 ## About
 
@@ -40,6 +26,10 @@ Ships pre-configured for the two most popular community shells:
 - **[caelestia-shell](https://github.com/caelestia-dots/shell)** — `~/.config/quickshell/caelestia`
 
 Adding any other Quickshell-based shell takes about five minutes — see [Adding a new shell](#adding-a-new-shell).
+
+<div align="center">
+<img src="assets/preview.png" alt="Shell switcher menu" width="560">
+</div>
 
 ## Features
 
