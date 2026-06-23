@@ -10,7 +10,13 @@ Switch between multiple [Quickshell](https://quickshell.outfoxxed.me) shells on 
 [![rofi](https://img.shields.io/badge/rofi-FF5555?style=for-the-badge&logo=linux&logoColor=white)](https://github.com/davatorium/rofi)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
-<img src="assets/menu.png" alt="Shell switcher menu" width="520">
+<br>
+
+<video src="https://github.com/kellyson71/hypr-shell-switcher/releases/download/v2.0.0/recording_20260623_15-32-22.mp4" controls width="720"></video>
+
+<br>
+
+<img src="assets/preview.png" alt="Shell switcher menu" width="600">
 
 </div>
 
@@ -145,7 +151,7 @@ shell_desc()  { case $1 in yourshell) echo "Short description";; ... esac; }
 
 ## Customizing the animation
 
-All animation parameters live at the top of `transition.ts`:
+All animation parameters live in `transition.ts`:
 
 | Variable | Default | Description |
 |---|---|---|
